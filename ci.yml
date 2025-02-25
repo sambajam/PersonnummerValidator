@@ -1,3 +1,9 @@
+
+
+
+
+
+
 name: CI Build  # Namnet på vår workflow
 
 on: [push, pull_request]  # När workflowen ska köras: vid push eller pull request
