@@ -1,0 +1,25 @@
+name: CI Build  # Namnet på vår workflow
+
+on: [push, pull_request]  # När workflowen ska köras: vid push eller pull request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Använder en Ubuntu-server för att köra workflowen
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Hämtar koden från GitHub
+
+    - name: Install .NET 9
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 9.0.x  # Installerar .NET 9
+
+    - name: Restore dependencies
+      run: dotnet restore  # Hämtar alla beroenden
+
+    - name: Build project
+      run: dotnet build --no-restore  # Bygger projektet
+
+    - name: Run tests
+      run: dotnet test --no-build --verbosity normal  # Kör enhetstester
