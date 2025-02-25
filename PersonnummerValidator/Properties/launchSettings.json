@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PersonnummerValidator": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
